@@ -347,7 +347,7 @@ a:focus, input:focus, .hamburger:focus {
 }
 
 .home-model {
-  width: 30px;
+  width: 25vw;
 }
 
 .description {
@@ -592,6 +592,10 @@ a:focus, input:focus, .hamburger:focus {
 
   .home-image-container {
     margin: 0 1rem;
+  }
+
+  .home-model {
+    width: 60vw;
   }
 
   .darktoggle {
