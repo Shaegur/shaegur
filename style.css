@@ -571,6 +571,10 @@ a:focus, input:focus, .hamburger:focus {
     text-align: center;
     gap: 2rem;
   }
+
+  .shape-2 {
+    transform: translate(18%,120%)
+  }
   
   .main-heading {
     font-size: 3rem;
@@ -596,8 +600,8 @@ a:focus, input:focus, .hamburger:focus {
   }
 
   .home-model {
-    width: 50vw;
-    height: 20vh;
+    width: 55vw;
+    height: 25vh;
   }
 
   .darktoggle {
