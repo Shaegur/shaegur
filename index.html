@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShaegurRah</title>
+    <link rel="icon" type="image/x-icon" href="/images/logo/logo.png?">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!--links for roboto condensed font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Javascript scripts for the 3D Models -->
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://unpkg.com/resize-observer-polyfill@1.5.0/dist/ResizeObserver.js"></script>
+    <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <h1>shaegur.rah</h1>
+        </div>
+    </div>
+
+    <!-- Custom Top Scroll Bar -->
+    <div class="scrollbar-container">
+        <div class="scrollbar"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" style="display:none;">
+        <nav class="navbar">
+            <div class="logo"><a href="#home">SR.</a></div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About Me</a>
+                <a href="#python">Python</a>
+                <a href="#websites">Websites</a>
+                <a href="#lua">Lua</a>
+                <a href="#unity">Unity</a>
+            </div>
+            <input class="darkcheck" type="checkbox" id="darkmode-toggle"/>
+            <label for="darkmode-toggle" class="darktoggle">
+                <svg class = "sunicon" width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><!-- SUN ICON-->
+                    <g id="Environment / Sun">
+                    <path id="Vector" d="M12 4V2M12 20V22M6.41421 6.41421L5 5M17.728 17.728L19.1422 19.1422M4 12H2M20 12H22M17.7285 6.41421L19.1427 5M6.4147 17.728L5.00049 19.1422M12 17C9.23858 17 7 14.7614 7 12C7 9.23858 9.23858 7 12 7C14.7614 7 17 9.23858 17 12C17 14.7614 14.7614 17 12 17Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                </svg>
+                <svg class = "moonicon" width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <!-- MOON ICON -->
+                    <path d="M3.32031 11.6835C3.32031 16.6541 7.34975 20.6835 12.3203 20.6835C16.1075 20.6835 19.3483 18.3443 20.6768 15.032C19.6402 15.4486 18.5059 15.6834 17.3203 15.6834C12.3497 15.6834 8.32031 11.654 8.32031 6.68342C8.32031 5.50338 8.55165 4.36259 8.96453 3.32996C5.65605 4.66028 3.32031 7.89912 3.32031 11.6835Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </label>
+            <a href="#contact" class="contact-btn">Contact Me</a>
+            
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+
+        <div class="background-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+
+        <section class="home" id="home">
+            <div class="home-content">
+                <h1 class="main-heading">Shaegur<br>Rahaman</h1>
+                <p class="description">I'm a Web developer & I'm very passionate and dedicated to my work. I have acquired
+                    the skills and knowledge necessary to make your project a success.</p>
+
+                <div class="cta-buttons">
+                    <a href="#about" class="contact-btn">About Me</a>
+                    <a href="#works" class="secondary-btn">My Works <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="info-section">
+                    <div class="info-item">
+                        <p><strong>Age</strong><br>17</p>
+                    </div>
+                    <div class="info-item">
+                        <p><strong>Date of Birth</strong><br>22 November 2007</p>
+                    </div>
+                    <div class="info-item">
+                        <p><strong>Fluent in:</strong><br>English, Italian and Bengali</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="home-image">
+                <div class="home-image-container">
+                    <div class="home-image-inner">
+                        <model-viewer class="home-model" src="/models/scene.gltf" alt="Logo" shadow-intensity="1" camera-controls auto-rotate ar interaction-prompt="none"></model-viewer>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://uk.linkedin.com/in/shaegur-rahaman-675028249"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/Shaegur"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <div class="seperator"></div>
+        <div class="about" id="about">
+            <h1 class="about-title">About Me</h1>
+           <div class="about-box">
+               <div class="about-paragraph">
+                   I'm a Computer Science student with a passion for technology and software development - I love breaking things down to understand how they work, explore new technologies and build projects that are impactful.
+               </div>
+               <div class="about-details">
+                   <div class="education">
+                        <h4>Education</h4>
+                        Studying 4 A Levels:<br>
+                        Mathematics, Further Mathematics, Computer Science and Physics<br>
+                        Expected Graduation: 2026
+                    </div>
+                    <div class="skills">
+                        <h4>Skills</h4>
+                        Programming: Python, Lua, JavaScript, C#<br>
+                        Web: React, HTML, CSS<br>
+                        Applications: Visual Studio Code, Pycharm, Unity<br>
+                        Currently Learning: Node.js, C#
+                    </div>
+                </div>
+                <a href="#about" class="about-btn">More About Me</a>
+          </div>
+          <div class="seperator"></div>
+        </div>
+
+    </div> <!-- Main content ends here -->
+
+    <script src="script.js"></script>
+    <!-- Loads <model-viewer> for modern browsers: -->
+	<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <!-- Loads <model-viewer> for old browsers like IE11: -->
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+</body>
+
+</html>
