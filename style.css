@@ -591,14 +591,6 @@ a:focus, input:focus, .hamburger:focus {
     margin-top: 2rem;
   }
 
-  .home-image-container {
-    margin: 0 1rem;
-  }
-
-  .home-model {
-    width: 30vh;
-  }
-
   .darktoggle {
     margin-right: -100%;
   }
