@@ -189,7 +189,7 @@ a:focus, input:focus, .hamburger:focus {
   position: relative;
   text-transform: uppercase;
   color: transparent;
-  -webkit-text-stroke: 0.5px var(--text);
+  -webkit-text-stroke: 1px var(--text);
 }
 /* this is the text, when you hover on button */
 .hover-text {
