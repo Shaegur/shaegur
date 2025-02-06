@@ -9,7 +9,7 @@ window.addEventListener('load', function() {
         setTimeout(function() {
             loadingScreen.style.display = 'none'; // Hide the loading screen
         }, 1000); // Delay before hiding loading screen
-    }, 500); // Delay before starting the slide up
+    }, 1000); // Delay before starting the slide up
 });
 
 const hamburger = document.querySelector('.hamburger');
