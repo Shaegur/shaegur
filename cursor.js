@@ -1,3 +1,13 @@
+// Check if the device supports touch
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+// If it's a touch device, add a class to the body to hide the cursor circle
+if (isTouchDevice) {
+  document.body.classList.add('no-cursor');
+} else {
+  document.body.classList.remove('no-cursor');
+}
+
 // Select the circle element
 const circleElement = document.querySelector('.cursor_circle');
 
