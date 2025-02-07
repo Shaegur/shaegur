@@ -1,3 +1,35 @@
+// Track mouse movement and visibility
+let isMouseOut = false;
+
+window.addEventListener('mousemove', (e) => {
+  // If the cursor is out of bounds and returns, show it
+  if (isMouseOut) {
+    circleElement.classList.remove('hidden');
+    isMouseOut = false;
+  }
+
+  // Update mouse position as before
+  mouse.x = e.x;
+  mouse.y = e.y;
+});
+
+// Detect when the mouse goes out of the window and add the "hidden" class
+window.addEventListener('mouseout', () => {
+  // Only hide cursor if it's visible
+  if (!circleElement.classList.contains('hidden')) {
+    circleElement.classList.add('hidden');
+    isMouseOut = true;
+  }
+});
+
+// Detect when the mouse comes back into the window and show the cursor again
+window.addEventListener('mouseover', () => {
+  if (isMouseOut) {
+    circleElement.classList.remove('hidden');
+    isMouseOut = false;
+  }
+});
+
 // Check if the device supports touch
 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
