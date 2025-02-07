@@ -22,6 +22,20 @@
   --oppsite: #71B5DF;
 }
 
+.cursor_circle {
+  --circle-size: 40px;
+  position: fixed;
+  height: var(--circle-size);
+  width: var(--circle-size);
+  border: 1px solid var(--text);
+  border-radius: 100%;
+  top: calc(var(--circle-size) / 2 * -1);
+  left: calc(var(--circle-size) / 2 * -1);
+  pointer-events: none;
+  z-index: 99999999;
+  transition: border 0.1s ease; /* Smooth border transition */
+}
+
 .darktoggle {
   width: 75px;
   height: 30px;
