@@ -22,6 +22,10 @@
   --oppsite: #71B5DF;
 }
 
+.no-cursor .cursor_circle {
+  display: none;
+}
+
 .cursor_circle {
   --circle-size: 40px;
   position: fixed;
