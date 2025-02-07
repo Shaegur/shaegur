@@ -37,7 +37,12 @@
   left: calc(var(--circle-size) / 2 * -1);
   pointer-events: none;
   z-index: 99999999;
-  transition: border 0.1s ease; /* Smooth border transition */
+  transition: border 0.1s ease, opacity 0.3s ease; /* Smooth border and opacity transition */
+  opacity: 1; /* Ensure cursor starts visible */
+}
+
+.cursor_circle.hidden {
+  opacity: 0; /* Hidden state when mouse goes out of bounds */
 }
 
 .darktoggle {
