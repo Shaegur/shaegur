@@ -8,6 +8,7 @@
   --shade2: #B1E1FF;
   --altbackground: #e0e0e0;
   --oppsite: #E54545;
+  --currentpage: #71B5DF;
 }
 
 .darkmode {
@@ -20,6 +21,7 @@
   --shade2: #3d3d3d;
   --altbackground: #595959;
   --oppsite: #71B5DF;
+  --currentpage: #E54545;
 }
 
 .no-cursor .cursor_circle {
@@ -261,6 +263,9 @@ a:focus, input:focus, .hamburger:focus {
   width: 100%;
 }
 
+.nav-links .currentpage {
+  color: var(--currentpage);
+}
 .contact-btn {
   background: linear-gradient(45deg, var(--accentdark), var(--accentlight));
   color: var(--text);
@@ -593,8 +598,91 @@ a:focus, input:focus, .hamburger:focus {
   box-shadow: 0 5px 15px var(--accentdark);
 }
 
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns on desktop */
+  gap: 2rem; /* Space between items */
+  row-gap: 3rem;
+  padding: 0 5%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 2s ease, transform 2s ease; /* Smooth transition */
+}
+
+/* When the "fade-in" class is added, the animation will be triggered */
+.projects-title.fade-in, .projects-container.fade-in {
+  opacity: 1;
+  transform: translateY(0); /* This will animate them to their final position */
+}
+
+.website, .python, .lua, .unity {
+  background-color: var(--altbackground);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px var(--heading);
+  transition: transform 0.3s ease;
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+.website:hover, .python:hover, .lua:hover, .unity:hover {
+  transform: translateY(-5px); /* Hover effect */
+}
+
+.projects-title {
+  text-align: center;
+  font-family: "Roboto Condensed", serif;
+  font-weight: 400;
+  font-size: 50px;
+  padding-bottom: 40px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease; /* Smooth transition */
+}
+
+.projects-subheadings {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.projects-btn {
+  background: linear-gradient(45deg, var(--accentdark), var(--accentlight));
+  color: var(--text);
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  align-self: center;
+  text-align: center;
+  margin: 10px;
+  width: 200px;
+  border: none;
+  cursor: pointer;
+}
+
+.projects-btn i {
+  transition: transform 0.3s ease; /* Add transition for arrow */
+}
+
+.projects-btn:hover i {
+  transform: translateX(5px); /* Move the arrow to the right by 5px */
+}
+
+.projects-contents{
+  margin-bottom: 1rem;
+}
 
 @media (max-width: 910px) {
+
+  .projects-container {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    padding: 0;
+    align-items: center; /* Ensure items are centered horizontally */
+    justify-content: center; /* Ensure content is centered vertically */
+    margin: 0 auto; /* Center the container horizontally */
+  }
 
   .darktoggle{
     right: 10%;
