@@ -9,6 +9,7 @@
   --altbackground: #e0e0e0;
   --oppsite: #E54545;
   --currentpage: #71B5DF;
+  --invert: 0%;
 }
 
 .darkmode {
@@ -22,6 +23,7 @@
   --altbackground: #595959;
   --oppsite: #71B5DF;
   --currentpage: #E54545;
+  --invert: 100%;
 }
 
 .no-cursor .cursor_circle {
@@ -617,17 +619,29 @@ a:focus, input:focus, .hamburger:focus {
 
 .website, .python, .lua, .unity {
   background-color: var(--altbackground);
-  padding: 1.5rem;
+  padding: 2rem;
   border-radius: 10px;
   box-shadow: 0px 0px 10px var(--heading);
   transition: transform 0.3s ease;
-  text-align: center;
+  text-align: left;
   padding-top: 2rem;
   padding-bottom: 3rem;
 }
 
 .website:hover, .python:hover, .lua:hover, .unity:hover {
   transform: translateY(-5px); /* Hover effect */
+}
+
+.website img {
+  filter: invert(var(--invert));
+  width: 25px;
+  height: 35px;
+}
+
+.python img, .lua img, .unity img {
+  width: 30px;
+  height: 30px;
+  filter: invert(var(--invert));
 }
 
 .projects-title {
@@ -642,8 +656,28 @@ a:focus, input:focus, .hamburger:focus {
 }
 
 .projects-subheadings {
+  font-family: "Roboto Condensed", serif;
+  font-weight: 400;
   font-size: 1.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.projects-header {
+  display: flex;
+  & .website-images{
+    margin-left: auto;
+    transform: translateY(-2.5px);
+    & img{
+      margin-left: 10px;
+    }
+  }
+  & .projects-images{
+    margin-left: auto;
+    & img{
+      margin-left: 10px;
+    }
+  }
 }
 
 .projects-btn {
@@ -654,7 +688,6 @@ a:focus, input:focus, .hamburger:focus {
   text-decoration: none;
   align-self: center;
   text-align: center;
-  margin: 10px;
   width: 200px;
   border: none;
   cursor: pointer;
