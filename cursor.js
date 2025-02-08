@@ -1,46 +1,6 @@
 // Track mouse movement and visibility
-let isMouseOut = false;
+let isMouseOut = true; // Start with the cursor "out" initially
 
-window.addEventListener('mousemove', (e) => {
-  // If the cursor is out of bounds and returns, show it
-  if (isMouseOut) {
-    circleElement.classList.remove('hidden');
-    isMouseOut = false;
-  }
-
-  // Update mouse position as before
-  mouse.x = e.x;
-  mouse.y = e.y;
-});
-
-// Detect when the mouse goes out of the window and add the "hidden" class
-window.addEventListener('mouseout', () => {
-  // Only hide cursor if it's visible
-  if (!circleElement.classList.contains('hidden')) {
-    circleElement.classList.add('hidden');
-    isMouseOut = true;
-  }
-});
-
-// Detect when the mouse comes back into the window and show the cursor again
-window.addEventListener('mouseover', () => {
-  if (isMouseOut) {
-    circleElement.classList.remove('hidden');
-    isMouseOut = false;
-  }
-});
-
-// Check if the device supports touch
-const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-// If it's a touch device, add a class to the body to hide the cursor circle
-if (isTouchDevice) {
-  document.body.classList.add('no-cursor');
-} else {
-  document.body.classList.remove('no-cursor');
-}
-
-// Select the circle element
 const circleElement = document.querySelector('.cursor_circle');
 
 // Create objects to track mouse position and custom cursor position
@@ -57,12 +17,34 @@ let borderSize = 1;  // Default border size (normal)
 
 // Update mouse position on the 'mousemove' event
 window.addEventListener('mousemove', (e) => {
+  // Show the cursor only when mouse is inside the window
+  if (isMouseOut) {
+    circleElement.classList.remove('hidden');
+    isMouseOut = false;  // Mouse is no longer "out"
+  }
+
+  // Update mouse position
   mouse.x = e.x;
   mouse.y = e.y;
 });
 
-// Smoothing factor for cursor movement speed (0 = smoother, 1 = instant)
-const speed = 0.17;
+// Detect when the mouse goes out of the window and hide the cursor
+window.addEventListener('mouseout', () => {
+  // Only hide cursor if it's visible
+  if (!circleElement.classList.contains('hidden')) {
+    circleElement.classList.add('hidden');
+    isMouseOut = true; // Mouse is now "out"
+  }
+});
+
+// Detect when the mouse comes back into the window and show the cursor again
+window.addEventListener('mouseover', () => {
+  // Ensure the cursor is visible when the mouse re-enters the window
+  if (isMouseOut) {
+    circleElement.classList.remove('hidden');
+    isMouseOut = false;
+  }
+});
 
 // Handle mouse down (press)
 window.addEventListener('mousedown', () => {
@@ -75,6 +57,9 @@ window.addEventListener('mouseup', () => {
   borderSize = 1; // Reset border size when released
   circleElement.style.borderWidth = `${borderSize}px`;
 });
+
+// Smoothing factor for cursor movement speed (0 = smoother, 1 = instant)
+const speed = 0.17;
 
 // Start animation
 const tick = () => {
