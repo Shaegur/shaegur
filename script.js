@@ -51,36 +51,49 @@ darkmodeToggle.addEventListener('change', function() {
     }
 });
 
-// Create an intersection observer to trigger fade-in effect when About Me is in view
-const aboutSection = document.querySelector('.about');
+// Function to add fade-in animation when a section is in view
+const addFadeInEffect = (sectionId, targetSelector, threshold) => {
+  const section = document.querySelector(sectionId);
 
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // Add animation classes when About Me section is in view
-      entry.target.querySelector('.about-title').classList.add('fade-in');
-      entry.target.querySelector('.about-box').classList.add('fade-in');
-      observer.unobserve(entry.target); // Stop observing once the animation is triggered
-    }
-  });
-}, { threshold: 0.5 }); // Trigger when 50% of the section is visible
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Add fade-in classes to target elements within the section
+        entry.target.querySelectorAll(targetSelector).forEach(target => {
+          target.classList.add('fade-in');
+        });
+        observer.unobserve(entry.target); // Stop observing once the animation is triggered
+      }
+    });
+  }, { threshold: threshold }); // Use the dynamic threshold value
 
-observer.observe(aboutSection);
+  observer.observe(section);
+};
 
-document.querySelectorAll('a[href^="#about"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();  // Prevent default anchor behavior
+// Set the threshold based on device type
+const isMobile = window.innerWidth <= 910; // Assuming 910px as the breakpoint for mobile
 
-      // Get the target element
-      const targetElement = document.querySelector(this.getAttribute('href'));
+// Apply the fade-in effect for the About Me section (using 50% threshold for both)
+addFadeInEffect('.about', '.about-title, .about-box', isMobile ? 0.8 : 1);
 
-      // Calculate the offset (change the value here to adjust scroll position)
-      const offset = 120;  // Example: scroll 100px down
+// Apply the fade-in effect for the Projects section with dynamic threshold
+addFadeInEffect('#projects', '.projects-title, .projects-container', isMobile ? 0.25 : 0.5);
 
-      // Scroll smoothly to the target element with the offset
-      window.scrollTo({
-        top: targetElement.offsetTop - offset,
-        behavior: 'smooth'
-      });
+// Smooth scroll behavior for navigation
+document.querySelectorAll('a[href^="#about"], a[href^="#projects"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();  // Prevent default anchor behavior
+
+    // Get the target element
+    const targetElement = document.querySelector(this.getAttribute('href'));
+
+    // Calculate the offset (change the value here to adjust scroll position)
+    const offset = 160;  // Example: scroll 160px down
+
+    // Scroll smoothly to the target element with the offset
+    window.scrollTo({
+      top: targetElement.offsetTop - offset,
+      behavior: 'smooth'
     });
   });
+});
