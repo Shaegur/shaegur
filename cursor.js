@@ -28,6 +28,14 @@ window.addEventListener('mousemove', (e) => {
   mouse.y = e.y;
 });
 
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+// If it's a touch device, add a class to the body to hide the cursor circle
+if (isTouchDevice) {
+  document.body.classList.add('no-cursor');
+} else {
+  document.body.classList.remove('no-cursor');
+}
+
 // Detect when the mouse goes out of the window and hide the cursor
 window.addEventListener('mouseout', () => {
   // Only hide cursor if it's visible
