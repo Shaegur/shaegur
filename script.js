@@ -77,7 +77,7 @@ const isMobile = window.innerWidth <= 910; // Assuming 910px as the breakpoint f
 addFadeInEffect('.about', '.about-title, .about-box', isMobile ? 0.8 : 1);
 
 // Apply the fade-in effect for the Projects section with dynamic threshold
-addFadeInEffect('#projects', '.projects-title, .projects-container', isMobile ? 0.25 : 0.5);
+addFadeInEffect('#projects', '.projects-title, .projects-container', isMobile ? 0.25 : 0.6);
 
 // Smooth scroll behavior for navigation
 document.querySelectorAll('a[href^="#about"], a[href^="#projects"]').forEach(anchor => {
@@ -93,6 +93,21 @@ document.querySelectorAll('a[href^="#about"], a[href^="#projects"]').forEach(anc
     // Scroll smoothly to the target element with the offset
     window.scrollTo({
       top: targetElement.offsetTop - offset,
+      behavior: 'smooth'
+    });
+  });
+});
+
+document.querySelectorAll('a[href^="#home"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();  // Prevent default anchor behavior
+
+    // Get the target element
+    const targetElement = document.querySelector(this.getAttribute('href'));
+
+    // Scroll smoothly to the target element with the offset
+    window.scrollTo({
+      top: targetElement.offsetTop,
       behavior: 'smooth'
     });
   });
