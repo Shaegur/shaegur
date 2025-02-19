@@ -705,7 +705,299 @@ a:focus, input:focus, .hamburger:focus {
   margin-bottom: 1rem;
 }
 
+/* When the "fade-in" class is added, the animation will be triggered */
+.contact-title.fade-in, .contact-box.fade-in {
+  opacity: 1;
+  transform: translateY(0); /* This will animate them to their final position */
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* If you want the title and button stacked vertically */
+  text-align: center; /* Centers the text */
+}
+
+.contact-title {
+  justify-self: center;
+  font-family: "Roboto Condensed", serif;
+  font-weight: 400;
+  font-size: 50px;
+  padding-bottom: 70px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease; /* Smooth transition */
+}
+
+.contact-paragraph {
+  padding-bottom: 40px;
+  font-size: large;
+}
+
+.contact-box {
+  width: 80vw;
+  height: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 2s ease, transform 2s ease; /* Smooth transition */
+}
+
+.contactmebutton {
+  display: flex; /* To align children inside the button */
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  width: 12rem;
+  height: auto;
+}
+
+.contactmebutton .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: var(--accentlight);
+  border-radius: 1.625rem;
+}
+
+.contactmebutton .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: var(--text);
+}
+
+.contactmebutton .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+}
+
+.contactmebutton .circle .icon.arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.29rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid var(--text);
+  border-right: 0.125rem solid var(--text);
+  transform: rotate(45deg);
+}
+
+.contactmebutton .button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  color: var(--accentlight);
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.contactmebutton:hover .circle {
+  width: 100%;
+}
+
+.contactmebutton:hover .circle .icon.arrow {
+  background: var(--text);
+  transform: translate(1rem, 0);
+}
+
+.contactmebutton:hover .button-text {
+  color: var(--text);
+}
+
+footer {
+  background-color: var(--background);
+  padding: 30px 40px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin: 10px;
+
+  & p {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+}
+
+.footer-section h2,
+.footer-section h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* 2x3 Navigation Grid */
+.nav-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  text-align: left;
+}
+
+.footerlinks li {
+  margin: 9px 0;
+}
+
+.footer-section a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 14px;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-section a:hover {
+  color: var(--accentlight);
+}
+
+.footer-section i {
+  margin-right: 8px;
+}
+
+/* Footer Bottom Alignment */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px auto 0;
+  border-top: 1px solid var(--altbackground);
+  padding-top: 10px;
+  font-size: 12px;
+  color: var(--text);
+  text-align: center;
+}
+
+.footer-bottom p {
+  flex: 1;
+  text-align: center;
+}
+
+.footer-bottom p:first-child {
+  text-align: left;
+}
+
+.footer-bottom p:last-child {
+  text-align: right;
+}
+
+/* Left Navigator container */
+.left-nav {
+  position: fixed;
+  left: 20px;
+  top: 55%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 1000;
+}
+
+/* Each nav item (link) */
+.left-nav .nav-item {
+  position: relative;
+  display: block;
+  width: 15px;
+  height: 15px;
+  text-decoration: none;
+}
+
+/* The circular button */
+.left-nav .nav-item .circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--altbackground);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Hover state: enlarge the circle */
+.left-nav .nav-item:hover .circle {
+  transform: scale(1.2);
+}
+
+/* Show title text on hover using a pseudo-element */
+.left-nav .nav-item::after {
+  content: attr(data-title);
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  white-space: nowrap;
+  color: var(--text);
+  font-size: 14px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* On hover, fade in the title */
+.left-nav .nav-item:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(5px);
+}
+
+/* Active state: change circle background */
+.left-nav .nav-item.active .circle {
+  background: var(--accentlight);
+}
+
 @media (max-width: 910px) {
+
+  .left-nav {
+    left: auto;
+    right: 15px;
+  }
+
+  .left-nav .nav-item::after {
+    display: none;
+  }
 
   .projects-container {
     display: flex;
@@ -764,7 +1056,8 @@ a:focus, input:focus, .hamburger:focus {
 
   .info-section {
     flex-direction: column;
-    gap: 1.5rem;
+    width: 80vw;
+    margin: 0 auto; /* Center the container horizontally */
   }
 
   .social-icons {
