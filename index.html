@@ -11,7 +11,8 @@
     <link rel="icon" type="image/x-icon" href="./images/logo/logo.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!--links for roboto condensed font-->
+    <!--links for roboto condensed font and symbols-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -37,6 +38,23 @@
     <div class="scrollbar-container">
         <div class="scrollbar"></div>
     </div>
+
+    <!-- Left Navigator -->
+    <div class="left-nav">
+        <a href="#home" class="nav-item active" data-title="Home">
+          <div class="circle"></div>
+        </a>
+        <a href="#about" class="nav-item" data-title="About Me">
+          <div class="circle"></div>
+        </a>
+        <a href="#projects" class="nav-item" data-title="Projects">
+          <div class="circle"></div>
+        </a>
+        <a href="#contact" class="nav-item" data-title="Contact Me">
+          <div class="circle"></div>
+        </a>
+    </div>
+  
 
     <!-- Main Content -->
     <div class="main-content" style="display:none;">
@@ -197,6 +215,58 @@
             </div>
         </div>
         <div class="seperator"></div>
+        <div class="contact" id="contact">
+            <h1 class="contact-title">Contact Me</h1>
+           <div class="contact-box">
+                <div class="contact-paragraph">
+                    Feel free to reach out — I'm eager to collaborate on creative projects and discuss exciting new opportunities.
+                </div>
+                <a class="contactmebutton" href="#contact">
+                    <span class="circle" aria-hidden="true">
+                    <span class="icon arrow"></span>
+                    </span>
+                    <span class="button-text">Let's Talk</span>
+                </a>
+          </div>
+        </div>
+        <div class="seperator"></div>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <a href="#home"><h2 class="logo">SR.</h2></a>
+                    <p>Computer Science Student & Aspiring Developer</p>
+                    <a href="https://github.com/Shaegur/shaegur" target="_blank">
+                        <i class="fab fa-github"></i> View Source Code <i class="fa fa-external-link" style="font-size:12px"></i>
+                    </a>
+                </div>
+        
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul class="nav-grid">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#Python">Python</a></li>
+                        <li><a href="#Websites">Websites</a></li>
+                        <li><a href="#Lua">Lua</a></li>
+                        <li><a href="#Unity">Unity</a></li>
+                    </ul>
+                </div>
+        
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul class="footerlinks">
+                        <li><a href="https://github.com/Shaegur" target="_blank"><i class="fab fa-github"></i> GitHub <i class="fa fa-external-link" style="font-size:12px"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/shaegur-rahaman-675028249/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn <i class="fa fa-external-link" style="font-size:12px"></i></a></li>
+                        <li><a href="mailto:shaegurrahaman@outlook.com"><i class="fas fa-envelope"></i> Email <i class="fa fa-external-link" style="font-size:12px"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        
+            <div class="footer-bottom">
+                <p>© 2025 Shaegur Rahaman. All rights reserved.</p>
+                <p>Looking Foward To Stay In Touch ❤️</p>
+            </div>
+        </footer>             
 
     </div> <!-- Main content ends here -->
 
