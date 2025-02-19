@@ -1,114 +1,109 @@
 // Wait for the page to fully load
 window.addEventListener('load', function() {
-    // Slide up the loading screen after 500ms
-    setTimeout(function() {
-        const loadingScreen = document.querySelector('.loading-screen');
-        loadingScreen.style.transform = 'translateY(-100%)'; // Slide it up
-        const mainContent = document.querySelector('.main-content');
-        mainContent.style.display = 'block'; // Reveal the website content
-        setTimeout(function() {
-            loadingScreen.style.display = 'none'; // Hide the loading screen
-        }, 1000); // Delay before hiding loading screen
-    }, 1000); // Delay before starting the slide up
+  // Add active class to the "Home" link while loading
+  const homeNavItem = document.querySelector('.left-nav a[href="#home"]');
+  homeNavItem.classList.add('active'); // Make "Home" active initially
+
+  const loadingScreen = document.querySelector('.loading-screen');
+  const mainContent = document.querySelector('.main-content');
+
+  // Slide up the loading screen after 500ms
+  setTimeout(() => {
+      loadingScreen.style.transform = 'translateY(-100%)'; // Slide it up
+      mainContent.style.display = 'block'; // Reveal the website content
+      setTimeout(() => (loadingScreen.style.display = 'none'), 1000); // Hide loading screen
+  }, 1000);
 });
 
+// Toggle navigation menu
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 
 hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active'); // Toggle navigation visibility (slide in/out)
-    hamburger.classList.toggle('active'); // Toggle hamburger transformation (X shape)
+  navLinks.classList.toggle('active'); // Toggle navigation visibility
+  hamburger.classList.toggle('active'); // Toggle hamburger transformation
 });
 
-// Get the scrollbar and container elements
+// Scrollbar update based on scroll progress
 const scrollbar = document.querySelector('.scrollbar');
-const scrollbarContainer = document.querySelector('.scrollbar-container');
-
-// Update the width of the scrollbar based on the scroll progress
-window.addEventListener('scroll', function() {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercentage = (scrollTop / docHeight) * 100;
-    scrollbar.style.width = scrollPercentage + '%'; // Set the width to reflect scroll progress
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  scrollbar.style.width = `${(scrollTop / docHeight) * 100}%`; // Set scrollbar width
 });
 
-let darkmode = localStorage.getItem('darkmode')
+// Dark mode functionality
 const darkmodeToggle = document.getElementById('darkmode-toggle');
-
-// Set the checkbox state based on localStorage when the page loads
-if(darkmode === "active") {
-    document.body.classList.add('darkmode');
-    darkmodeToggle.checked = true; // Ensure the checkbox reflects dark mode state
+if (localStorage.getItem('darkmode') === "active") {
+  document.body.classList.add('darkmode');
+  darkmodeToggle.checked = true; // Reflect dark mode state
 }
 
 darkmodeToggle.addEventListener('change', function() {
-    if (this.checked) {
-        document.body.classList.add('darkmode');
-        localStorage.setItem('darkmode', 'active');
-    } else {
-        document.body.classList.remove('darkmode');
-        localStorage.setItem('darkmode', null);
-    }
+  document.body.classList.toggle('darkmode', this.checked);
+  localStorage.setItem('darkmode', this.checked ? 'active' : null);
 });
 
 // Function to add fade-in animation when a section is in view
 const addFadeInEffect = (sectionId, targetSelector, threshold) => {
   const section = document.querySelector(sectionId);
+  if (!section) return;
 
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Add fade-in classes to target elements within the section
-        entry.target.querySelectorAll(targetSelector).forEach(target => {
-          target.classList.add('fade-in');
-        });
-        observer.unobserve(entry.target); // Stop observing once the animation is triggered
-      }
-    });
-  }, { threshold: threshold }); // Use the dynamic threshold value
+  const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              section.querySelectorAll(targetSelector).forEach(target => 
+                  target.classList.add('fade-in')
+              );
+              observer.unobserve(entry.target); // Stop observing after fade-in
+          }
+      });
+  }, { threshold });
 
   observer.observe(section);
 };
 
-// Set the threshold based on device type
-const isMobile = window.innerWidth <= 910; // Assuming 910px as the breakpoint for mobile
-
-// Apply the fade-in effect for the About Me section (using 50% threshold for both)
+// Set fade-in thresholds dynamically based on screen size
+const isMobile = window.innerWidth <= 910;
 addFadeInEffect('.about', '.about-title, .about-box', isMobile ? 0.8 : 1);
-
-// Apply the fade-in effect for the Projects section with dynamic threshold
+addFadeInEffect('.contact', '.contact-title, .contact-box', isMobile ? 0.95 : 1);
 addFadeInEffect('#projects', '.projects-title, .projects-container', isMobile ? 0.25 : 0.6);
 
-// Smooth scroll behavior for navigation
-document.querySelectorAll('a[href^="#about"], a[href^="#projects"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();  // Prevent default anchor behavior
-
-    // Get the target element
-    const targetElement = document.querySelector(this.getAttribute('href'));
-
-    // Calculate the offset (change the value here to adjust scroll position)
-    const offset = 160;  // Example: scroll 160px down
-
-    // Scroll smoothly to the target element with the offset
-    window.scrollTo({
-      top: targetElement.offsetTop - offset,
-      behavior: 'smooth'
-    });
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#about"], a[href^="#contact"], a[href^="#projects"], a[href^="#home"]')
+  .forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+          e.preventDefault(); // Prevent default anchor behavior
+          const targetElement = document.querySelector(this.getAttribute('href'));
+          if (targetElement) {
+              window.scrollTo({
+                  top: targetElement.offsetTop - (this.getAttribute('href') === '#home' ? 0 : 160),
+                  behavior: 'smooth'
+              });
+          }
+      });
   });
-});
 
-document.querySelectorAll('a[href^="#home"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();  // Prevent default anchor behavior
+// Update active nav item on scroll and click
+document.addEventListener('DOMContentLoaded', () => {
+  const navItems = document.querySelectorAll('.left-nav .nav-item');
 
-    // Get the target element
-    const targetElement = document.querySelector(this.getAttribute('href'));
+  const updateActiveNav = () => {
+      navItems.forEach(item => {
+          const target = document.querySelector(item.getAttribute('href'));
+          if (!target) return;
+          const rect = target.getBoundingClientRect();
+          item.classList.toggle('active', rect.top <= window.innerHeight * 0.5 && rect.bottom >= window.innerHeight * 0.5);
+      });
+  };
 
-    // Scroll smoothly to the target element with the offset
-    window.scrollTo({
-      top: targetElement.offsetTop,
-      behavior: 'smooth'
-    });
+  window.addEventListener('scroll', updateActiveNav);
+  updateActiveNav();
+
+  navItems.forEach(item => {
+      item.addEventListener('click', function() {
+          navItems.forEach(nav => nav.classList.remove('active'));
+          this.classList.add('active');
+      });
   });
 });
