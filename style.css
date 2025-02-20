@@ -10,6 +10,8 @@
   --oppsite: #E54545;
   --currentpage: #71B5DF;
   --invert: 0%;
+  --fadeopaque: #FDFDFDFF;
+  --fadeclear: #FDFDFD00;
 }
 
 .darkmode {
@@ -24,6 +26,8 @@
   --oppsite: #71B5DF;
   --currentpage: #E54545;
   --invert: 100%;
+  --fadeopaque: #242426FF;
+  --fadeclear: #24242600;
 }
 
 .no-cursor .cursor_circle {
@@ -968,7 +972,7 @@ footer {
   content: attr(data-title);
   position: absolute;
   left: 20px;
-  top: 50%;
+  top: 55%;
   transform: translateY(-50%);
   opacity: 0;
   white-space: nowrap;
@@ -988,7 +992,180 @@ footer {
   background: var(--accentlight);
 }
 
+.front-title h1 {
+  text-align: center;
+  font-family: "Roboto Condensed", serif;
+  font-weight: 400;
+  font-size: 150px;
+  margin-bottom: -10px;
+  margin-top: 80px;
+  opacity: 0;
+  animation: fadeInUp 1s ease 0.3s forwards;
+}
+
+.front-title h2 {
+  text-align: center;
+  font-family: "Roboto Condensed", serif;
+  font-weight: 300;
+  font-size: 40px;
+  padding-bottom: 40px;
+  opacity: 0;
+  animation: fadeInUp 1s ease 0.3s forwards;
+}
+
+/* When the "fade-in" class is added, the animation will be triggered */
+.aboutPageParagraph1.fade-in,.aboutPageParagraph2.fade-in,.aboutPageParagraph3.fade-in{
+  opacity: 1;
+  transform: translateY(0); /* This will animate them to their final position */
+}
+
+.aboutPageParagraph1,.aboutPageParagraph2,.aboutPageParagraph3 {
+  width: 60vw;
+  font-size: large;
+  height: auto;
+  margin-top: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease; /* Smooth transition */
+}
+
+.websitecard {
+  margin-top: 30px;
+  width: 300px;
+  background-color: var(--altbackground);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.websitecard .header {
+  background-color: var(--heading);
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.skill-name {
+  width: 120px;
+  font-size: 16px;
+}
+
+.skill-level {
+  width: 160px;
+  height: 10px;
+  background-color: var(--shade1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-left: 20px;
+}
+
+.skill-percent {
+  background-color: var(--accentlight);
+  height: 100%;
+}
+
+.skill-percent-number {
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+/* When the "fade-in" class is added, the animation will be triggered */
+.skills-container.fade-in{
+  opacity: 1;
+  transform: translateY(0); /* This will animate them to their final position */
+}
+
+.skills-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease; /* Smooth transition */
+}
+
+.slider {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+.slider-track {
+  display: flex;
+  animation: scroll 10s linear infinite;
+}
+.slider img {
+  height: 60px;
+  margin: 0 15px;
+  filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.2));
+  -webkit-user-drag: none;
+}
+
+@keyframes scroll {
+  from {
+      transform: translateX(0);
+  }
+  to {
+      transform: translateX(-50%);
+  }
+}
+
+/* Fade effect */
+.fade-left, .fade-right {
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.fade-left {
+  left: 0;
+  background: linear-gradient(to right, var(--fadeopaque), var(--fadeclear));
+}
+
+.fade-right {
+  right: 0;
+  background: linear-gradient(to left, var(--fadeopaque), var(--fadeclear));
+}
+
 @media (max-width: 910px) {
+
+  .aboutPageParagraph1,.aboutPageParagraph2,.aboutPageParagraph3 {
+    width: 80vw;
+  }
+
+  .skills-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .websitecard {
+     margin-bottom: 20px;
+  }
+
+  .front-title h1 {
+    font-size: 20vw;
+  }
+  
+  .front-title h2 {
+    font-size: 5vw;
+  }
 
   .left-nav {
     left: auto;

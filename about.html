@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Personal Portfolio">
+    <meta name="keywords" content="Shaegur, Rahaman, Computer Science, Programmer, Software Engineer">
+    <meta name="author" content="Shaegur Rahaman">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShaegurRah | About Me</title>
+    <link rel="icon" type="image/x-icon" href="./images/logo/logo.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!--links for roboto condensed font and symbols-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Javascript scripts for the 3D Models -->
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://unpkg.com/resize-observer-polyfill@1.5.0/dist/ResizeObserver.js"></script>
+    <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+</head>
+
+<body>
+
+    <div class="cursor_circle hidden"></div>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <h1>about.me</h1>
+        </div>
+    </div>
+
+    <!-- Custom Top Scroll Bar -->
+    <div class="scrollbar-container">
+        <div class="scrollbar"></div>
+    </div>
+  
+
+    <!-- Main Content -->
+    <div class="main-content" style="display:none;">
+        <nav class="navbar">
+            <a href="#about">
+                <button class="logo">
+                    <span class="actual-text">&nbsp;SR.&nbsp;</span>
+                    <span class="hover-text">&nbsp;SR.&nbsp;</span>
+                </button>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#about" class="currentpage">About Me</a>
+                <a href="#python">Python</a>
+                <a href="#websites">Websites</a>
+                <a href="#lua">Lua</a>
+                <a href="#unity">Unity</a>
+            </div>
+            <input class="darkcheck" type="checkbox" id="darkmode-toggle"/>
+            <label for="darkmode-toggle" class="darktoggle">
+                <svg class = "sunicon" width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><!-- SUN ICON-->
+                    <g id="Environment / Sun">
+                    <path id="Vector" d="M12 4V2M12 20V22M6.41421 6.41421L5 5M17.728 17.728L19.1422 19.1422M4 12H2M20 12H22M17.7285 6.41421L19.1427 5M6.4147 17.728L5.00049 19.1422M12 17C9.23858 17 7 14.7614 7 12C7 9.23858 9.23858 7 12 7C14.7614 7 17 9.23858 17 12C17 14.7614 14.7614 17 12 17Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                </svg>
+                <svg class = "moonicon" width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <!-- MOON ICON -->
+                    <path d="M3.32031 11.6835C3.32031 16.6541 7.34975 20.6835 12.3203 20.6835C16.1075 20.6835 19.3483 18.3443 20.6768 15.032C19.6402 15.4486 18.5059 15.6834 17.3203 15.6834C12.3497 15.6834 8.32031 11.654 8.32031 6.68342C8.32031 5.50338 8.55165 4.36259 8.96453 3.32996C5.65605 4.66028 3.32031 7.89912 3.32031 11.6835Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </label>
+            <a href="#contact" class="contact-btn">Contact Me</a>
+            
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+        <div class="seperator" id="about"></div>
+
+        <div class="front-title">
+            <h1>ABOUT ME</h1>
+            <h2>Welcome To Shaegur's Journey So Far</h2>
+        </div>
+
+        <div class="seperator"></div>
+        <div class="aboutPageParagraph1">
+            <p>My journey started when I first got my hands on a computer and began exploring how games worked behind the scenes. 
+                I was fascinated by the way code could bring characters, mechanics, and entire worlds to life. 
+                As I grew older, my curiosity turned into a passion for programming, leading me to learn different languages and experiment with game development tools. 
+                Every project I worked on reinforced my love for problem-solving and creativity, pushing me to improve and refine my skills. 
+                Now, my goal is to create immersive and engaging experiences that not only bring joy to players but also challenge me to keep learning and innovating.</p>
+        </div>
+        <div class="aboutPageParagraph2">
+            <p>Currently I am a student at St Dominics Sixth Form College in Harrow On The Hill, where I am studying 4 A-Level, which iclude: Mathematics, Further Mathematics, Computer Science and Physics. 
+                I am passionate about these 4 subject which I have chosen as they expand my knowleadge on subjects which have always interested me, and help with my problem-solving skills.
+                <br><br>Before that, I went to De Salis Studio College in Hayes, where I studies 13 GCSEs and 2 Qualifications.
+                <br>I acquired grade 9s in the following subjects: Mathematics, Computer Science, Physics, Chemistry, Biology, Business and Economics.
+                <br>I recieved grade 8s in the following subjects: Further Mathematics, Statistics, Geography, Citizenship and English Literature.
+                Finally, I got a grade 7 in English Language. <br>The Qualifications which I achieved was a Merit in AAT Level 2 Certificate in Bookkeeping, and a Level 2 Distinction in Technical Award in Finance(TAF).</p>
+        </div>
+        <div class="aboutPageParagraph3">
+            <p>Over many years of studying and refining my skills on this extremely vast subject I have learned many programming languages and technologies. 
+                Knowing that this is just the start of my career, I expect to learn much more over the following years to come. Below are some of my skills:</p>
+        </div>
+        <div class="skills-container">
+            <div class="websitecard">
+                <div class="header">My Website Skills</div>
+                <div class="body">
+                    <div class="skill">
+                        <div class="skill-name">HTML</div>
+                        <div class="skill-level">
+                            <div style="width: 90%" class="skill-percent"></div>
+                        </div>
+                        <div class="skill-percent-number">90%</div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">CSS</div>
+                        <div class="skill-level">
+                            <div style="width: 80%" class="skill-percent"></div>
+                        </div>
+                        <div class="skill-percent-number">80%</div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">JavaScript</div>
+                        <div class="skill-level">
+                            <div style="width: 75%" class="skill-percent"></div>
+                        </div>
+                        <div class="skill-percent-number">75%</div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="websitecard">
+                <div class="header">My Python Skills</div>
+                <div class="body">
+                    <div class="skill">
+                        <div class="skill-name">NumPy</div>
+                        <div class="skill-level">
+                            <div style="width: 70%" class="skill-percent"></div>
+                        </div>
+                        <div class="skill-percent-number">70%</div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">TensorFlow</div>
+                        <div class="skill-level">
+                            <div style="width: 50%" class="skill-percent"></div>
+                        </div>
+                        <div class="skill-percent-number">50%</div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">Scikit-Learn</div>
+                        <div class="skill-level">
+                            <div style="width: 40%" class="skill-percent"></div>
+                        </div>
+                        <div class="skill-percent-number">40%</div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="websitecard">
+                <div class="header">My Other Skills</div>
+                <div class="body">
+                    <div class="skill">
+                        <div class="skill-name">Lua</div>
+                        <div class="skill-level">
+                            <div style="width: 80%" class="skill-percent"></div>
+                        </div>
+                        <div class="skill-percent-number">80%</div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">Unity / C#</div>
+                        <div class="skill-level">
+                            <div style="width: 60%" class="skill-percent"></div>
+                        </div>
+                        <div class="skill-percent-number">60%</div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">React</div>
+                        <div class="skill-level">
+                            <div style="width: 20%" class="skill-percent"></div>
+                        </div>
+                        <div class="skill-percent-number">20%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider">
+            <div class="fade-left"></div>
+            <div class="slider-track">
+                <img src="./images/icons/html.png" alt="HTML">
+                <img src="./images/icons/css.png" alt="CSS">
+                <img src="./images/icons/js.png" alt="JavaScript">
+                <img src="./images/icons/python.jpeg" alt="Python">
+                <img src="./images/icons/lua.png" alt="Lua">
+                <img src="./images/icons/roblox-studio.png" alt="Roblox-Studio">
+                <img src="./images/icons/c.png" alt="C#">
+                <img src="./images/icons/unity.png" alt="Unity">
+                <img src="./images/icons/numpy.png" alt="NumPy">
+                <img src="./images/icons/tensorflow.png" alt="TensorFlow">
+                <img src="./images/icons/scikit-learn.png" alt="Scikit-Learn">
+                <img src="./images/icons/XGB.png" alt="XGBoost">
+                <img src="./images/icons/sympy.png" alt="SymPy">
+                <img src="./images/icons/matplotlib.png" alt="MatPlotLib">
+                <!-- Duplicate icons for smooth loop -->
+                <img src="./images/icons/html.png" alt="HTML">
+                <img src="./images/icons/css.png" alt="CSS">
+                <img src="./images/icons/js.png" alt="JavaScript">
+                <img src="./images/icons/python.jpeg" alt="Python">
+                <img src="./images/icons/lua.png" alt="Lua">
+                <img src="./images/icons/roblox-studio.png" alt="Roblox-Studio">
+                <img src="./images/icons/c.png" alt="C#">
+                <img src="./images/icons/unity.png" alt="Unity">
+                <img src="./images/icons/numpy.png" alt="NumPy">
+                <img src="./images/icons/tensorflow.png" alt="TensorFlow">
+                <img src="./images/icons/scikit-learn.png" alt="Scikit-Learn">
+                <img src="./images/icons/XGB.png" alt="XGBoost">
+                <img src="./images/icons/sympy.png" alt="SymPy">
+                <img src="./images/icons/matplotlib.png" alt="MatPlotLib">
+            </div>
+            <div class="fade-right"></div>
+        </div>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <a href="#about"><h2 class="logo">SR.</h2></a>
+                    <p>Computer Science Student & Aspiring Developer</p>
+                    <a href="https://github.com/Shaegur/shaegur" target="_blank">
+                        <i class="fab fa-github"></i> View Source Code <i class="fa fa-external-link" style="font-size:12px"></i>
+                    </a>
+                </div>
+        
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul class="nav-grid">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#Python">Python</a></li>
+                        <li><a href="#Websites">Websites</a></li>
+                        <li><a href="#Lua">Lua</a></li>
+                        <li><a href="#Unity">Unity</a></li>
+                    </ul>
+                </div>
+        
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul class="footerlinks">
+                        <li><a href="https://github.com/Shaegur" target="_blank"><i class="fab fa-github"></i> GitHub <i class="fa fa-external-link" style="font-size:12px"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/shaegur-rahaman-675028249/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn <i class="fa fa-external-link" style="font-size:12px"></i></a></li>
+                        <li><a href="mailto:shaegurrahaman@outlook.com"><i class="fas fa-envelope"></i> Email <i class="fa fa-external-link" style="font-size:12px"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        
+            <div class="footer-bottom">
+                <p>© 2025 Shaegur Rahaman. All rights reserved.</p>
+                <p>Looking Foward To Stay In Touch ❤️</p>
+            </div>
+        </footer>             
+
+    </div> <!-- Main content ends here -->
+
+    <script src="allpages.js"></script>
+    <script src="about.js"></script>
+    <script src="cursor.js"></script>
+    <!-- Loads <model-viewer> for modern browsers: -->
+	<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <!-- Loads <model-viewer> for old browsers like IE11: -->
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+</body>
+
+</html>
