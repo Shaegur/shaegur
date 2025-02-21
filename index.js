@@ -28,9 +28,9 @@ const addFadeInEffect = (sectionId, targetSelector, threshold) => {
 // Set fade-in thresholds dynamically based on screen size
 const isTablet = window.innerWidth <= 910;
 const isMobile = window.innerWidth <= 360;
-addFadeInEffect('.about', '.about-title, .about-box', isTablet ? (isMobile ? 0.65 : 0.8 ): 1);
+addFadeInEffect('.about', '.about-title, .about-box', isTablet ? (isMobile ? 0.48 : 0.8 ): 1);
 addFadeInEffect('.contact', '.contact-title, .contact-box', isTablet ? 0.95 : 1);
-addFadeInEffect('#projects', '.projects-title, .projects-container', isTablet ? (isMobile ? 0.18 : 0.25 ) : 0.6);
+addFadeInEffect('#projects', '.projects-title, .projects-container', isTablet ? (isMobile ? 0.15 : 0.25 ) : 0.6);
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#about"], a[href^="#contact"], a[href^="#projects"], a[href^="#home"]')
