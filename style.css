@@ -1163,6 +1163,8 @@ footer {
   max-width: 1200px;
   margin: auto;
   padding: 20px;
+  overflow: hidden;
+  flex-wrap: wrap;
 }
 
 .contactList {
@@ -1265,7 +1267,6 @@ footer {
   font-size: 12px;
 }
 
-/* From Uiverse.io by 00Kubi */ 
 .submitbutton {
   --primary: var(--accentlight);
   --neutral-1: var(--background);
